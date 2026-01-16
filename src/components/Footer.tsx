@@ -66,15 +66,15 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="mt-10 pt-8 border-t border-black/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 ml-4">
           <p className="text-sm text-black/55">
-            © {year} — Tous droits réservés
+            © MEEZUS {year} — Tous droits réservés
           </p>
 
           {/* micro liens (optionnels, cohérents) */}
           <div className="text-sm text-black/55 flex items-center gap-5 mr-4">
-            <a href="#" className="hover:text-black transition">
+            <a href="https://www.instagram.com/beautybylangora_?igsh=MTdpc2FjYm02MGEwZQ==" className="hover:text-black transition">
               Instagram
             </a>
-            <a href="#" className="hover:text-black transition">
+            <a href="https://wa.me/2250749637267" className="hover:text-black transition">
               WhatsApp
             </a>
           </div>

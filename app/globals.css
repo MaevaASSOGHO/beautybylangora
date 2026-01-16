@@ -130,3 +130,89 @@ h1, h2, h3 {
     box-shadow: 0 18px 60px rgba(0,0,0,0.08);
   }
 }
+
+@keyframes heroZoomLoop {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.08) translateY(-1.2%);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.hero-zoom-loop {
+  animation: heroZoomLoop 18s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes bioKenBurns {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.06) translate3d(-1.2%, -1%, 0);
+  }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+.bio-kenburns {
+  animation: bioKenBurns 18s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes tipFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes tipShine {
+  0%   { transform: translateX(-120%); opacity: 0; }
+  15%  { opacity: 1; }
+  50%  { opacity: 1; }
+  85%  { opacity: 0.9; }
+  100% { transform: translateX(120%); opacity: 0; }
+}
+
+/* Bloc conseils premium (boucle) */
+.tip-premium {
+  position: relative;
+  overflow: hidden;
+  animation: tipFloat 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* voile “shine” élégant */
+.tip-premium::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255,255,255,0.55) 50%,
+    transparent 65%
+  );
+  filter: blur(10px);
+  opacity: 0;
+  transform: translateX(-120%);
+  animation: tipShine 7.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Petit grain/verre pour le rendu luxe */
+.tip-premium::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 100% at 0% 0%,
+    rgba(255,255,255,0.35) 0%,
+    transparent 55%
+  );
+  opacity: 0.6;
+  pointer-events: none;
+}

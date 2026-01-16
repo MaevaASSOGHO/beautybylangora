@@ -1,12 +1,14 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const imgs = [
-  "/images/intro/1.jpg",
-  "/images/intro/3.jpg",
-  "/images/intro/2.jpg",
-  "/images/intro/4.jpg",
-  "/images/intro/5.jpg",
-  "/images/intro/6.jpg",
+  "/images/intro/1.JPG",
+  "/images/intro/3.JPG",
+  "/images/intro/2.JPG",
+  "/images/intro/4.JPG",
+  "/images/intro/5.JPG",
+  "/images/intro/6.JPG",
 ];
 
 export default function IntroGallery() {
@@ -19,17 +21,20 @@ export default function IntroGallery() {
             La beauté, version <span className="accent">haute précision</span>.
           </h2>
 
-          {/* paragraph with colored background */}
-          <div className="max-w-2xl">
-            <div>
-              <div className="px-6 py-4 md:px-8 md:py-5 rounded-2xl bg-[hsl(var(--rose-header))] ring-1 ring-black/5 soft-shadow">
-                <p className="text-sm md:text-base text-black/75 leading-relaxed text-center">
-                    Des looks modernes et luxueux, où chaque détail sublime ton éclat.
-                </p>
-                </div>
+          {/* paragraph animated */}
+          <motion.div
+            initial={{ opacity: 0, y: 14, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="max-w-2xl"
+          >
+            <div className="px-6 py-4 md:px-8 md:py-5 rounded-2xl bg-[hsl(var(--rose-header))] ring-1 ring-black/5 soft-shadow">
+              <p className="text-sm md:text-base text-black/75 leading-relaxed text-center">
+                Des looks modernes et luxueux, où chaque détail sublime ton éclat.
+              </p>
             </div>
-          </div>
-
+          </motion.div>
         </div>
 
         {/* Grid */}
@@ -43,17 +48,11 @@ export default function IntroGallery() {
                   fill
                   className="object-cover transition duration-700 group-hover:scale-[1.03]"
                 />
-
-                {/* overlay ultra subtil pour “polish” (pas floutant) */}
                 <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition duration-500" />
               </div>
             </div>
           ))}
         </div>
-
-        {/* <p className="mt-7 text-center text-xs text-black/50 max-w-2xl mx-auto">
-          Chaque mise en beauté est personnalisée selon ton visage, ton teint et l’occasion.
-        </p> */}
       </div>
     </section>
   );

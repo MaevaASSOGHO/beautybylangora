@@ -4,11 +4,11 @@ export default function Hero() {
   return (
     <section id="accueil" className="relative min-h-[78vh] flex items-end">
       <Image
-        src="/images/hero.JPG"
+        src="/images/bio4.jpg"
         alt="Beauty by Langora"
         fill
         priority
-        className="object-cover"
+        className="object-cover hero-zoom-loop"
       />
     <div className="lux-container relative pb-14 md:pb-20 ml-4 md:ml-8">
         <div className="max-w-2xl">
@@ -20,7 +20,7 @@ export default function Hero() {
           </h1>
           <div className="mt-5 h-px w-24 bg-gradient-to-r from-transparent via-black/20 to-transparent" />
           <p className="mt-4 text-sm md:text-base text-black/60 leading-relaxed">
-            Une mise en beauté élégante, lumineuse et sur-mesure.
+            Une vision du maquillage où l’élégance rencontre l’excellence.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href="#reservation" className="lux-btn">Réserver</a>

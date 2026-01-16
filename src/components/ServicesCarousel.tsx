@@ -38,21 +38,71 @@ export default function ServicesCarousel() {
 
           {/* petit bloc visuel (cohérent avec vos sections) */}
           <div className="md:pl-8">
-            <div className="relative max-w-md rounded-2xl overflow-hidden soft-shadow ring-1 ring-black/10">
+            <div className="relative max-w-md rounded-2xl overflow-hidden soft-shadow ring-1 ring-black/10 tip-premium">
                 {/* fond glass : on “sent” le rose du site */}
                 <div className="absolute inset-0 bg-[hsl(var(--rose-header))]/45 backdrop-blur-xl" />
                 {/* petit glow/gradient pour faire “verre” */}
                 <div className="absolute inset-0 bg-[radial-gradient(120%_100%_at_0%_0%,rgba(255,255,255,0.55)_0%,transparent_55%)]" />
                 <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.04),transparent_60%)]" />
 
-                <div className="relative px-6 py-5">
-                <div className="text-[11px] tracking-[0.22em] uppercase text-black/45">
-                    Conseil
-                </div>
-                <p className="mt-2 text-sm text-black/70 leading-relaxed">
-                    Choisis une prestation, puis clique sur <b>Réserver</b> pour pré-remplir le formulaire.
-                </p>
-                </div>
+                <div className="md:pl-8">
+  <motion.div
+    className="relative max-w-md rounded-2xl overflow-hidden soft-shadow ring-1 ring-black/10"
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ amount: 0.6 }}
+    transition={{ duration: 0.45, ease: "easeOut" }}
+  >
+    {/* Animation loop (float) uniquement quand visible */}
+    <motion.div
+      className="relative"
+      initial={{ y: 0 }}
+      whileInView={{ y: [0, -2, 0] }}
+      viewport={{ amount: 0.6 }}
+      transition={{
+        duration: 3.8,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "mirror",
+      }}
+    >
+      {/* fond glass : on “sent” le rose du site */}
+      <div className="absolute inset-0 bg-[hsl(var(--rose-header))]/45 backdrop-blur-xl" />
+      {/* petit glow/gradient pour faire “verre” */}
+      <div className="absolute inset-0 bg-[radial-gradient(120%_100%_at_0%_0%,rgba(255,255,255,0.55)_0%,transparent_55%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.04),transparent_60%)]" />
+
+      {/* Shine premium en boucle (visible uniquement quand visible) */}
+      <motion.div
+        className="absolute -inset-[35%] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.55) 50%, transparent 65%)",
+          filter: "blur(10px)",
+        }}
+        initial={{ x: "-120%", opacity: 0 }}
+        whileInView={{ x: ["-120%", "120%"], opacity: [0, 1, 0] }}
+        viewport={{ amount: 0.6 }}
+        transition={{
+          duration: 6.8,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatDelay: 1.2,
+        }}
+      />
+
+      <div className="relative px-6 py-5">
+        <div className="text-[11px] tracking-[0.22em] uppercase text-black/45">
+          Conseil
+        </div>
+        <p className="mt-2 text-sm text-black/70 leading-relaxed">
+          Choisis une prestation, puis clique sur <b>Réserver</b> pour pré-remplir le formulaire.
+        </p>
+      </div>
+    </motion.div>
+  </motion.div>
+</div>
+
             </div>
           </div>
 

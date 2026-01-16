@@ -22,14 +22,20 @@ export default function BioSection() {
             </h2>
 
             <p className="mt-4 text-sm md:text-base leading-relaxed text-black/70 max-w-xl">
-              (Tu remplaceras ce texte.) Ici, tu racontes ton style, tes spécialités
-              (teint, bridal, glam), ton approche, l’hygiène, et comment tu adaptes
-              chaque look au visage et à l’événement.
+              Je suis <strong>✨ Audrey Koffi ✨</strong>, maquilleuse professionnelle basée à Abidjan, spécialisée dans le maquillage événementiel et artistique.
+            </p>
+
+            <p className="mt-4 text-sm md:text-base leading-relaxed text-black/70 max-w-xl">
+              Chaque visage raconte une histoire. Mon rôle est de la révéler avec subtilité, maîtrise et raffinement.
+            </p>
+            
+            <p className="mt-6 text-sm md:text-base leading-relaxed text-black/70 max-w-xl">
+              À travers <strong>Beauty by Langora</strong>, je propose bien plus qu'un maquillage : <strong>une expérience beauté haut de gamme</strong>, personnalisée, confidentielle et soignée dans les moindres détails.
             </p>
 
             {/* TAGS (plus visibles) */}
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Bridal", "Glam", "Shooting", "Glow Naturel"].map((t) => (
+              {["Mariage", "Cérémonies privées", "Émissions", "Shooting", "Glow Naturel", "Clips vidéos"].map((t) => (
                 <span
                   key={t}
                   className="inline-flex items-center rounded-full px-4 py-2 text-xs md:text-sm font-medium
@@ -56,10 +62,10 @@ export default function BioSection() {
                     {/* boîte photo plus petite */}
                     <div className="relative mx-auto w-[86%] md:w-[78%] aspect-[9/14] overflow-hidden ring-1 ring-black/10 soft-shadow">
                         <Image
-                            src="/images/bio2.jpg"
+                            src="/images/boss.jpg"
                             alt="La make-up artiste"
                             fill
-                            className="object-cover"
+                            className="object-cover bio-kenburns"
                         />
 
                         {/* VIGNETTE INTERNE : couleur sur les bords, centre intact */}

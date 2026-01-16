@@ -15,7 +15,6 @@ export default function Page() {
       <IntroGallery />
       <BioSection />
       <ServicesCarousel />
-      <Portfolio />
       <BookingSection />
       <Footer />
     </main>
