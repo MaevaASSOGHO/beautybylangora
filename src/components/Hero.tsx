@@ -8,11 +8,7 @@ export default function Hero() {
         alt="Beauty by Langora"
         fill
         priority
-        className="
-          object-cover hero-zoom-loop
-          object-center
-          md:object-left
-        "
+        className="object-cover hero-zoom-loop object-[60%_30%] md:object-left"
       />
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/12 to-transparent" />
