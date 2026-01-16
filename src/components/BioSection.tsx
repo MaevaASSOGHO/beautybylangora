@@ -28,7 +28,7 @@ export default function BioSection() {
             <p className="mt-4 text-sm md:text-base leading-relaxed text-black/70 max-w-xl">
               Chaque visage raconte une histoire. Mon rôle est de la révéler avec subtilité, maîtrise et raffinement.
             </p>
-            
+
             <p className="mt-6 text-sm md:text-base leading-relaxed text-black/70 max-w-xl">
               À travers <strong>Beauty by Langora</strong>, je propose bien plus qu'un maquillage : <strong>une expérience beauté haut de gamme</strong>, personnalisée, confidentielle et soignée dans les moindres détails.
             </p>
@@ -62,7 +62,7 @@ export default function BioSection() {
                     {/* boîte photo plus petite */}
                     <div className="relative mx-auto w-[86%] md:w-[78%] aspect-[9/14] overflow-hidden ring-1 ring-black/10 soft-shadow">
                         <Image
-                            src="/images/boss.jpg"
+                            src="/images/intro/boss.jpg"
                             alt="La make-up artiste"
                             fill
                             className="object-cover bio-kenburns"

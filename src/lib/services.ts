@@ -30,7 +30,7 @@ export const services: Service[] = [
     description:
       "Options adaptées à ta journée. Tarifs valables sur Abidjan. Hors Abidjan : tarif + logement à la charge de la cliente.",
     priceLabel: "Dès 50 000 F CFA",
-    image: "/images/services/mariage.jpg",
+    image: "/images/services/mariage1.jpg",
     tag: "Bridal",
   },
   {
@@ -38,7 +38,7 @@ export const services: Service[] = [
     title: "Baby Shower / Shooting de Grossesse",
     description: "Mise en beauté douce, lumineuse, parfaite pour photo & event.",
     priceLabel: "25 000 F CFA (sans transport)",
-    image: "/images/services/babyshower.jpg",
+    image: "/images/services/babyshower1.jpg",
     tag: "Glow",
   },
   {
@@ -47,7 +47,7 @@ export const services: Service[] = [
     description:
       "Coup d’éclat : 15 000 • Sophistiqué : 35 000 • Pré-mariage : 35 000 (formule complète mariage : total 170 000 avec test).",
     priceLabel: "Dès 15 000 F CFA",
-    image: "/images/services/shooting.jpg",
+    image: "/images/services/shooting1.jpg",
     tag: "Photo",
   },
   {
