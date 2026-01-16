@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 const imgs = [
   "/images/intro/1.JPG",
-  "/images/intro/3.JPG",
+  "/images/intro/3.jpg",
   "/images/intro/2.JPG",
   "/images/intro/4.JPG",
-  "/images/intro/5.JPG",
+  "/images/intro/5.jpg",
   "/images/intro/6.JPG",
 ];
 
