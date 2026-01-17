@@ -16,9 +16,10 @@ function scrollToBooking(serviceTitle: string) {
 
 export default function ServicesCarousel() {
   return (
-    <section id="prestations" className="lux-section mt-16 md:mt-18">
+    // ✅ scroll-mt = évite que le menu "coupe" le titre au scroll
+    <section id="prestations" className="lux-section mt-16 scroll-mt-24 md:scroll-mt-28">
       <div className="lux-container">
-        {/* Head — même logique que Bio (badge + trait + titre + paragraphe) */}
+        {/* Head — cohérent avec Bio */}
         <div className="grid md:grid-cols-2 gap-10 items-start">
           <div className="md:pl-8">
             <div className="flex items-center gap-3">
@@ -36,76 +37,61 @@ export default function ServicesCarousel() {
             </p>
           </div>
 
-          {/* petit bloc visuel (cohérent avec vos sections) */}
+          {/* ✅ Conseil (boucle + uniquement visible) */}
           <div className="md:pl-8">
-            <div className="relative max-w-md rounded-2xl overflow-hidden soft-shadow ring-1 ring-black/10 tip-premium">
-                {/* fond glass : on “sent” le rose du site */}
-                <div className="absolute inset-0 bg-[hsl(var(--rose-header))]/45 backdrop-blur-xl" />
-                {/* petit glow/gradient pour faire “verre” */}
-                <div className="absolute inset-0 bg-[radial-gradient(120%_100%_at_0%_0%,rgba(255,255,255,0.55)_0%,transparent_55%)]" />
-                <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.04),transparent_60%)]" />
+            <motion.div
+              className="relative max-w-md rounded-2xl overflow-hidden soft-shadow ring-1 ring-black/5"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.65, once: false }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
+            >
+              {/* ✅ Fond rose plein (comme IntroGallery) */}
+              <div className="absolute inset-0 bg-[hsl(var(--rose-header))]" />
 
-                <div className="md:pl-8">
-  <motion.div
-    className="relative max-w-md rounded-2xl overflow-hidden soft-shadow ring-1 ring-black/10"
-    initial={{ opacity: 0, y: 10 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ amount: 0.6 }}
-    transition={{ duration: 0.45, ease: "easeOut" }}
-  >
-    {/* Animation loop (float) uniquement quand visible */}
-    <motion.div
-      className="relative"
-      initial={{ y: 0 }}
-      whileInView={{ y: [0, -2, 0] }}
-      viewport={{ amount: 0.6 }}
-      transition={{
-        duration: 3.8,
-        ease: "easeInOut",
-        repeat: Infinity,
-        repeatType: "mirror",
-      }}
-    >
-      {/* fond glass : on “sent” le rose du site */}
-      <div className="absolute inset-0 bg-[hsl(var(--rose-header))]/45 backdrop-blur-xl" />
-      {/* petit glow/gradient pour faire “verre” */}
-      <div className="absolute inset-0 bg-[radial-gradient(120%_100%_at_0%_0%,rgba(255,255,255,0.55)_0%,transparent_55%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.04),transparent_60%)]" />
+              {/* ✅ Shine premium */}
+              <motion.div
+                className="absolute -inset-[45%] pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.70) 50%, transparent 68%)",
+                  filter: "blur(10px)",
+                }}
+                initial={{ x: "-120%", opacity: 0 }}
+                whileInView={{ x: ["-120%", "120%"], opacity: [0, 1, 0] }}
+                viewport={{ amount: 0.65, once: false }}
+                transition={{
+                  duration: 4.8,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatDelay: 0.5,
+                }}
+              />
 
-      {/* Shine premium en boucle (visible uniquement quand visible) */}
-      <motion.div
-        className="absolute -inset-[35%] pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.55) 50%, transparent 65%)",
-          filter: "blur(10px)",
-        }}
-        initial={{ x: "-120%", opacity: 0 }}
-        whileInView={{ x: ["-120%", "120%"], opacity: [0, 1, 0] }}
-        viewport={{ amount: 0.6 }}
-        transition={{
-          duration: 6.8,
-          ease: "easeInOut",
-          repeat: Infinity,
-          repeatDelay: 1.2,
-        }}
-      />
+              {/* ✅ Float (plus visible) */}
+              <motion.div
+                className="relative px-6 py-5"
+                initial={{ y: 0 }}
+                whileInView={{ y: [0, -5, 0] }}
+                viewport={{ amount: 0.65, once: false }}
+                transition={{
+                  duration: 2.8,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                }}
+              >
+                <div className="text-[11px] tracking-[0.22em] uppercase text-black/45">
+                  Conseil
+                </div>
 
-      <div className="relative px-6 py-5">
-        <div className="text-[11px] tracking-[0.22em] uppercase text-black/45">
-          Conseil
-        </div>
-        <p className="mt-2 text-sm text-black/70 leading-relaxed">
-          Choisis une prestation, puis clique sur <b>Réserver</b> pour pré-remplir le formulaire.
-        </p>
-      </div>
-    </motion.div>
-  </motion.div>
-</div>
+                <p className="mt-2 text-sm text-black/70 leading-relaxed">
+                  Choisis une prestation, puis clique sur <b>Réserver</b> pour pré-remplir le formulaire.
+                </p>
+              </motion.div>
+            </motion.div>
 
-            </div>
           </div>
-
         </div>
 
         {/* Carousel */}
@@ -118,47 +104,56 @@ export default function ServicesCarousel() {
             {services.map((s) => (
               <article
                 key={s.id}
-                className="shrink-0 w-[86vw] sm:w-[520px] md:w-[640px] bg-[hsl(var(--rose-header))] soft-shadow overflow-hidden"
+                // ✅ tailles responsive (mobile moins énorme)
+                className="shrink-0 w-[88vw] sm:w-[520px] md:w-[640px] bg-[hsl(var(--rose-header))] soft-shadow overflow-hidden"
               >
-                {/* Image */}
+                {/* Image (grande) */}
                 <div className="relative aspect-[3/2]">
-                    <Image src={s.image} alt={s.title} fill className="object-cover" />
+                  <Image src={s.image} alt={s.title} fill className="object-cover" />
 
-                    {/* Feather interne (adoucir les bords + éviter le trait) */}
-                    <div
-                        className="absolute inset-0 pointer-events-none z-10
-                        bg-[radial-gradient(closest-side,transparent_70%,rgba(0,0,0,0.10)_100%)]"
-                    />
+                  {/* adoucir les bords */}
+                  <div
+                    className="absolute inset-0 pointer-events-none z-10
+                    bg-[radial-gradient(closest-side,transparent_68%,rgba(0,0,0,0.10)_100%)]"
+                  />
+                  <div
+                    className="absolute inset-0 pointer-events-none z-10
+                    bg-gradient-to-t from-black/10 via-transparent to-transparent"
+                  />
 
-                    {/* Shadow interne bas (très léger) */}
-                    <div
-                        className="absolute inset-0 pointer-events-none z-10
-                        bg-gradient-to-t from-black/10 via-transparent to-transparent"
-                    />
-
-                    {/* Tag catégorie (GLAM/BRIDAL/...) */}
-                    {s.tag && (
-                        <div className="absolute top-4 left-4 z-20">
-                        <span
-                            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs md:text-sm font-medium
-                                    bg-white/80 backdrop-blur-md shadow-sm ring-1 ring-black/10 text-black/75"
-                        >
-                            <span className="h-2 w-2 rounded-full bg-[hsl(var(--rose-accent))]" />
-                            {s.tag}
-                        </span>
-                        </div>
-                    )}
+                  {/* Tag catégorie */}
+                  {s.tag && (
+                    <div className="absolute top-4 left-4 z-20">
+                      <span
+                        className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs md:text-sm font-medium
+                        bg-white/80 backdrop-blur-md shadow-sm ring-1 ring-black/10 text-black/75"
+                      >
+                        <span className="h-2 w-2 rounded-full bg-[hsl(var(--rose-accent))]" />
+                        {s.tag}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
-
-                {/* Bandeau rose : titre + prix + description + bouton */}
+                {/* Meta */}
                 <div className="service-meta">
-                  <div className="flex items-start justify-between gap-6">
+                  {/* ✅ layout responsive: sur mobile on empile, sur desktop on aligne */}
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                     <div className="min-w-0">
                       <h3 className="text-lg md:text-xl font-semibold tracking-tight text-black leading-snug">
                         {s.title}
                       </h3>
-                      <p className="mt-2 text-sm md:text-base text-black/65 leading-relaxed">
+
+                      {/* ✅ description stable (pas de “case énorme”) */}
+                      <p
+                        className="mt-2 text-sm md:text-base text-black/65 leading-relaxed"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitLineClamp: 4,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        }}
+                      >
                         {s.description}
                       </p>
                     </div>
@@ -173,6 +168,7 @@ export default function ServicesCarousel() {
                     </div>
                   </div>
 
+                  {/* CTA */}
                   <div className="mt-5 flex justify-end">
                     <button className="lux-btn" onClick={() => scrollToBooking(s.title)}>
                       Réserver
@@ -183,8 +179,6 @@ export default function ServicesCarousel() {
             ))}
           </motion.div>
         </motion.div>
-
-
       </div>
     </section>
   );

@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="lux-container relative pb-14 md:pb-20 ml-4 md:ml-8">
         <div className="max-w-2xl">
           <p className="lux-badge gold-ring bg-white/80 text-black/70">
-            Prestations maquillage • Abidjan
+            Prestations maquillage • Côte d’Ivoire 
           </p>
 
           <h1 className="mt-4 brand-font text-4xl md:text-6xl leading-[1.02] text-white">

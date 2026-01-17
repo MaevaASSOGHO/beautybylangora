@@ -42,13 +42,10 @@ export default function Footer() {
               <a className="text-black/70 hover:text-black transition" href="#prestations">
                 Prestations
               </a>
-              <a className="text-black/70 hover:text-black transition" href="#portfolio">
-                Portfolio
-              </a>
               <a className="text-black/70 hover:text-black transition" href="#reservation">
                 Réservations
               </a>
-              <a className="text-black/70 hover:text-black transition" href="#contact">
+              <a className="text-black/70 hover:text-black transition" href="https://wa.me/2250749637267">
                 Contact
               </a>
             </div>

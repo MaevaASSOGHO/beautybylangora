@@ -35,7 +35,7 @@ export default function BioSection() {
 
             {/* TAGS (plus visibles) */}
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Mariage", "Cérémonies privées", "Émissions", "Shooting", "Glow Naturel", "Clips vidéos"].map((t) => (
+              {["Mariage", "Anniversaire", "Émission", "Shooting", "Glow Naturel", "Clips vidéos"].map((t) => (
                 <span
                   key={t}
                   className="inline-flex items-center rounded-full px-4 py-2 text-xs md:text-sm font-medium

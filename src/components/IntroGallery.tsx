@@ -3,11 +3,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const imgs = [
-  "/images/intro/1.jpg",
-  "/images/intro/3.jpg",
+  "/images/intro/9.jpg",
+  "/images/intro/7.jpg",
   "/images/intro/2.jpg",
   "/images/intro/4.jpg",
-  "/images/intro/5.jpg",
+  "/images/intro/8.jpg",
   "/images/intro/6.jpg",
 ];
 
